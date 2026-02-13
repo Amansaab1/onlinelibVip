@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔥 VIP LIBRARY UPLOADER - Sepax-Yt 🔥</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #000000, #1a0033, #330066);
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(255, 215, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 50%, rgba(255, 0, 255, 0.15) 0%, transparent 50%);
+            animation: pulseVIP 4s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        @keyframes pulseVIP {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .header h1 {
+            font-size: 4em;
+            color: #fff;
+            text-shadow: 
+                0 0 10px #ffd700,
+                0 0 20px #ffd700,
+                0 0 30px #ff00ff,
+                0 0 40px #ff00ff,
+                0 0 50px #ffd700;
+            animation: neonVIP 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes neonVIP {
+            from {
+                text-shadow: 
+                    0 0 10px #fff,
+                    0 0 20px #ffd700,
+                    0 0 30px #ff00ff,
+                    0 0 40px #ff00ff;
+            }
+            to {
+                text-shadow: 
+                    0 0 15px #fff,
+                    0 0 25px #ffd700,
+                    0 0 35px #ff00ff,
+                    0 0 45px #ff00ff,
+                    0 0 55px #ffd700;
+            }
+        }
+
+        .credit {
+            color: #ffd700;
+            font-size: 1.8em;
+            margin-top: 10px;
+            text-shadow: 0 0 10px #ff00ff;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .time-zone {
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            border: 2px solid #ffd700;
+            border-radius: 50px;
+            padding: 18px 35px;
+            margin: 20px auto;
+            display: inline-block;
+            color: #fff;
+            font-size: 1.4em;
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+            font-weight: bold;
+        }
+
+        .time-zone span {
+            color: #ffd700;
+            font-weight: bold;
+            margin: 0 5px;
+            font-size: 1.2em;
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .upload-card {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid #ffd700;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.4);
+        }
+
+        .upload-card h2 {
+            color: #ffd700;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            border-bottom: 2px solid #ff00ff;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            color: #ff00ff;
+            margin-bottom: 8px;
+            font-weight: bold;
+            text-shadow: 0 0 5px #ff00ff;
+            font-size: 1.1em;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid #ffd700;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: #ff00ff;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+        }
+
+        .input-group input[readonly] {
+            background: rgba(255, 215, 0, 0.1);
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        .file-upload-area {
+            border: 2px dashed #ffd700;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-bottom: 20px;
+        }
+
+        .file-upload-area:hover {
+            border-color: #ff00ff;
+            background: rgba(255, 0, 255, 0.1);
+        }
+
+        .file-upload-area i {
+            font-size: 3em;
+            color: #ffd700;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .file-upload-area p {
+            color: #fff;
+            font-size: 1.1em;
+        }
+
+        .file-upload-area span {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        #file-name {
+            margin-top: 15px;
+            color: #ff00ff;
+            font-weight: bold;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .upload-btn {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(45deg, #ffd700, #ff00ff, #ffd700);
+            background-size: 200% 200%;
+            border: none;
+            border-radius: 10px;
+            color: #000;
+            font-weight: bold;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-top: 20px;
+            animation: gradient 3s ease infinite;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .upload-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.8);
+        }
+
+        .history-card {
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid #ff00ff;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 0 60px rgba(255, 0, 255, 0.4);
+            max-height: 600px;
+            overflow-y: auto;
+        }
+
+        .history-card h2 {
+            color: #ff00ff;
+            margin-bottom: 20px;
+            font-size: 2.2em;
+            border-bottom: 2px solid #ffd700;
+            padding-bottom: 10px;
+            text-align: center;
+        }
+
+        .lib-item {
+            background: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #ffd700;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 15px;
+            transition: all 0.3s;
+        }
+
+        .lib-item:hover {
+            transform: translateX(10px);
+            background: rgba(255, 215, 0, 0.1);
+            border-left-color: #ff00ff;
+        }
+
+        .lib-item .lib-name {
+            color: #ffd700;
+            font-weight: bold;
+            font-size: 1.3em;
+            margin-bottom: 8px;
+        }
+
+        .lib-item .lib-details {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+        }
+
+        .lib-item .lib-details span {
+            color: #ff00ff;
+            font-size: 1em;
+        }
+
+        .lib-item .lib-time {
+            color: #fff;
+            font-size: 0.9em;
+            margin-bottom: 10px;
+        }
+
+        .download-link {
+            display: inline-block;
+            background: linear-gradient(45deg, #ffd700, #ff00ff);
+            color: #000;
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .download-link:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+        }
+
+        .status-message {
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            display: none;
+            font-weight: bold;
+            text-align: center;
+            font-size: 1.1em;
+        }
+
+        .status-success {
+            background: rgba(0, 255, 0, 0.2);
+            border: 2px solid #00ff00;
+            color: #00ff00;
+            display: block;
+        }
+
+        .status-error {
+            background: rgba(255, 0, 0, 0.2);
+            border: 2px solid #ff0000;
+            color: #ff0000;
+            display: block;
+        }
+
+        .token-display {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid #ffd700;
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 5px;
+            color: #ffd700;
+            font-family: monospace;
+            word-break: break-all;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #ffd700, #ff00ff);
+            border-radius: 6px;
+        }
+
+        @media (max-width: 768px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 2.5em;
+            }
+            
+            .credit {
+                font-size: 1.2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚡ VIP LIB UPLOADER ⚡</h1>
+            <div class="credit">👑 Created by Sepax-Yt 👑</div>
+        </div>
+
+        <!-- India Time Display -->
+        <div class="time-zone" id="timeDisplay">
+            🇮🇳 India Time: <span>Loading...</span>
+        </div>
+
+        <div class="main-grid">
+            <!-- Upload Section -->
+            <div class="upload-card">
+                <h2>📤 VIP UPLOAD</h2>
+                
+                <div class="input-group">
+                    <label>👤 GITHUB USERNAME</label>
+                    <input type="text" id="githubUser" value="Amansaab1" readonly>
+                </div>
+
+                <div class="input-group">
+                    <label>📁 REPOSITORY</label>
+                    <input type="text" id="repoName" value="onlinelibVip" readonly>
+                </div>
+
+                <div class="input-group">
+                    <label>🔑 GITHUB TOKEN (Already Added)</label>
+                    <input type="text" id="githubToken" value="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" readonly>
+                    <div class="token-display">✅ Token Ready to Use</div>
+                </div>
+
+                <div class="input-group">
+                    <label>📦 LIBRARY NAME</label>
+                    <input type="text" id="libName" placeholder="e.g., libbgmi.so, libvip.so">
+                </div>
+
+                <div class="input-group">
+                    <label>📎 SELECT LIBRARY FILE</label>
+                    <input type="file" id="fileInput" accept=".so" style="display: none;">
+                    <div class="file-upload-area" onclick="document.getElementById('fileInput').click()">
+                        <i>📂</i>
+                        <p>Click to <span>Browse</span> or Drag & Drop</p>
+                        <p style="font-size: 0.9em;">Supported: .so files only</p>
+                    </div>
+                    <div id="file-name">❌ No file selected</div>
+                </div>
+
+                <div class="status-message" id="statusMessage"></div>
+
+                <button class="upload-btn" onclick="uploadToGithub()">
+                    🚀 UPLOAD TO VIP REPOSITORY
+                </button>
+            </div>
+
+            <!-- History Section -->
+            <div class="history-card">
+                <h2>📚 UPLOAD HISTORY</h2>
+                <div id="libHistory">
+                    <div style="color: #ffd700; text-align: center;">Loading history...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // India Time Update
+        function updateIndiaTime() {
+            const options = {
+                timeZone: 'Asia/Kolkata',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
+            const indiaTime = new Date().toLocaleString('en-IN', options);
+            document.getElementById('timeDisplay').innerHTML = 
+                `🇮🇳 India Time: <span>${indiaTime}</span>`;
+        }
+        
+        setInterval(updateIndiaTime, 1000);
+        updateIndiaTime();
+
+        // File input handler
+        document.getElementById('fileInput').addEventListener('change', function(e) {
+            if (this.files && this.files[0]) {
+                const file = this.files[0];
+                const fileSize = (file.size / 1024).toFixed(2);
+                document.getElementById('file-name').innerHTML = 
+                    `✅ Selected: <span style="color: #ffd700;">${file.name}</span> (${fileSize} KB)`;
+            } else {
+                document.getElementById('file-name').innerHTML = '❌ No file selected';
+            }
+        });
+
+        // Show status message
+        function showStatus(message, type) {
+            const statusDiv = document.getElementById('statusMessage');
+            statusDiv.textContent = message;
+            statusDiv.className = `status-message status-${type}`;
+            
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+
+        // Upload to GitHub function
+        async function uploadToGithub() {
+            const githubUser = document.getElementById('githubUser').value;
+            const repoName = document.getElementById('repoName').value;
+            const githubToken = document.getElementById('githubToken').value;
+            const libName = document.getElementById('libName').value.trim();
+            const fileInput = document.getElementById('fileInput');
+            
+            // Validation
+            if (!libName) {
+                showStatus('❌ Please enter library name!', 'error');
+                return;
+            }
+            
+            if (!fileInput.files || !fileInput.files[0]) {
+                showStatus('❌ Please select a file!', 'error');
+                return;
+            }
+
+            const file = fileInput.files[0];
+            
+            // Check if it's .so file
+            if (!file.name.endsWith('.so')) {
+                showStatus('❌ Please select a .so file only!', 'error');
+                return;
+            }
+
+            // Show uploading status
+            showStatus('⏳ Uploading to GitHub... Please wait...', 'success');
+            
+            try {
+                // Read file as base64
+                const reader = new FileReader();
+                
+                reader.onload = async function(e) {
+                    const content = e.target.result.split(',')[1];
+                    
+                    // GitHub API URL
+                    const apiUrl = `https://api.github.com/repos/${githubUser}/${repoName}/contents/releases/download/Mafia/${libName}`;
+                    
+                    // India time for commit message
+                    const indiaTime = new Date().toLocaleString('en-IN', { 
+                        timeZone: 'Asia/Kolkata',
+                        hour12: true 
+                    });
+                    
+                    // Prepare request
+                    const response = await fetch(apiUrl, {
+                        method: 'PUT',
+                        headers: {
+                            'Authorization': `token ${githubToken}`,
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message: `🔥 VIP Upload: ${libName} by Sepax-Yt at ${indiaTime}`,
+                            content: content
+                        })
+                    });
+
+                    if (response.ok) {
+                        const data = await response.json();
+                        
+                        // Save to history
+                        const history = JSON.parse(localStorage.getItem('vipHistory') || '[]');
+                        const downloadUrl = `https://github.com/${githubUser}/${repoName}/releases/download/Mafia/${libName}`;
+                        
+                        history.push({
+                            name: libName,
+                            size: (file.size / 1024).toFixed(2) + ' KB',
+                            time: indiaTime,
+                            url: downloadUrl,
+                            sha: data.content.sha
+                        });
+                        
+                        localStorage.setItem('vipHistory', JSON.stringify(history));
+                        
+                        showStatus('✅✅✅ UPLOAD SUCCESSFUL! ✅✅✅', 'success');
+                        loadHistory();
+                        
+                        // Clear form
+                        document.getElementById('libName').value = '';
+                        document.getElementById('fileInput').value = '';
+                        document.getElementById('file-name').innerHTML = '❌ No file selected';
+                        
+                        // Show success with download link
+                        setTimeout(() => {
+                            alert(`✅ Upload Successful!\n\n📥 Download Link:\n${downloadUrl}`);
+                        }, 500);
+                        
+                    } else {
+                        const error = await response.json();
+                        showStatus(`❌ Upload Failed: ${error.message}`, 'error');
+                        console.error('Upload error:', error);
+                    }
+                };
+                
+                reader.readAsDataURL(file);
+                
+            } catch (error) {
+                showStatus(`❌ Error: ${error.message}`, 'error');
+                console.error('Error:', error);
+            }
+        }
+
+        // Load history function
+        function loadHistory() {
+            const history = JSON.parse(localStorage.getItem('vipHistory') || '[]');
+            const historyDiv = document.getElementById('libHistory');
+            
+            if (history.length === 0) {
+                historyDiv.innerHTML = '<div style="color: #ffd700; text-align: center; padding: 20px;">📭 No upload history yet</div>';
+                return;
+            }
+            
+            // Show last 10 uploads
+            const recentHistory = history.reverse().slice(0, 10);
+            
+            historyDiv.innerHTML = recentHistory.map((lib, index) => `
+                <div class="lib-item">
+                    <div class="lib-name">👑 ${lib.name}</div>
+                    <div class="lib-details">
+                        <span>📦 ${lib.size}</span>
+                        <span>🔗 <a href="${lib.url}" target="_blank" class="download-link">Download</a></span>
+                    </div>
+                    <div class="lib-time">🕐 ${lib.time}</div>
+                </div>
+            `).join('');
+        }
+
+        // Load history on page load
+        loadHistory();
+
+        // Drag and drop functionality
+        const dropArea = document.querySelector('.file-upload-area');
+        
+        ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, preventDefaults, false);
+        });
+
+        function preventDefaults(e) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+
+        ['dragenter', 'dragover'].forEach(eventName => {
+            dropArea.addEventListener(eventName, highlight, false);
+        });
+
+        ['dragleave', 'drop'].forEach(eventName => {
+            dropArea.addEventListener(eventName, unhighlight, false);
+        });
+
+        function highlight() {
+            dropArea.style.borderColor = '#ff00ff';
+            dropArea.style.background = 'rgba(255, 0, 255, 0.1)';
+        }
+
+        function unhighlight() {
+            dropArea.style.borderColor = '#ffd700';
+            dropArea.style.background = 'none';
+        }
+
+        dropArea.addEventListener('drop', handleDrop, false);
+
+        function handleDrop(e) {
+            const dt = e.dataTransfer;
+            const files = dt.files;
+            
+            if (files.length > 0) {
+                document.getElementById('fileInput').files = files;
+                const file = files[0];
+                
+                if (file.name.endsWith('.so')) {
+                    const fileSize = (file.size / 1024).toFixed(2);
+                    document.getElementById('file-name').innerHTML = 
+                        `✅ Selected: <span style="color: #ffd700;">${file.name}</span> (${fileSize} KB)`;
+                } else {
+                    alert('❌ Please drop a .so file only!');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
