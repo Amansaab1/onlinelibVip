@@ -1,0 +1,51 @@
+name: Auto Create Release
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'releases/download/Mafia/*.so'
+
+jobs:
+  create-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Get India Time
+        id: time
+        run: |
+          echo "TIME=$(TZ='Asia/Kolkata' date +'%Y-%m-%d %I:%M:%S %p IST')" >> $GITHUB_OUTPUT
+      
+      - name: Get Library Name
+        id: lib
+        run: |
+          FILE=$(ls releases/download/Mafia/*.so 2>/dev/null | head -n 1 || echo "")
+          if [ ! -z "$FILE" ]; then
+            echo "NAME=$(basename $FILE)" >> $GITHUB_OUTPUT
+            echo "SIZE=$(du -h $FILE | cut -f1)" >> $GITHUB_OUTPUT
+          else
+            echo "NAME=library.so" >> $GITHUB_OUTPUT
+            echo "SIZE=0KB" >> $GITHUB_OUTPUT
+          fi
+      
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: Mafia-${{ github.run_number }}
+          name: VIP Release ${{ steps.time.outputs.TIME }}
+          body: |
+            ## 🔥 VIP Library Uploaded 🔥
+            
+            **File:** `${{ steps.lib.outputs.NAME }}`
+            **Size:** ${{ steps.lib.outputs.SIZE }}
+            **Time:** ${{ steps.time.outputs.TIME }}
+            
+            **Download:**
+            ```
+            https://github.com/Amansaab1/onlinelibVip/releases/download/Mafia-${{ github.run_number }}/${{ steps.lib.outputs.NAME }}
+            ```
+          files: releases/download/Mafia/*
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
